@@ -16,6 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from pages.views import home_view
+from devices.views import device_index_view, device_show_view, device_create_view, device_update_view, device_delete_view
+
 urlpatterns = [
+    path('', home_view, name='home'),
     path('admin/', admin.site.urls),
+
+    path('devices/', device_index_view, name='device-index'),
+    path('devices/<int:id>', device_show_view, name='device-show'),
+    path('devices/create', device_create_view, name='device-create'),
+    path('devices/<int:id>/update/', device_update_view, name='device-update'),
+    path('devices/<int:id>/delete/', device_delete_view, name='device-delete'),
 ]
