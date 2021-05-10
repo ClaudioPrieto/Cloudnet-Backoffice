@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
 from pages.views import home_view
 from devices.views import device_index_view, device_show_view, device_create_view, device_update_view, device_delete_view
+
+from stores.views import Store_list, Store_detail, Store_create
+
 
 urlpatterns = [
     path('', home_view, name='home'),
@@ -28,4 +32,11 @@ urlpatterns = [
     path('devices/create', device_create_view, name='device-create'),
     path('devices/<int:id>/update/', device_update_view, name='device-update'),
     path('devices/<int:id>/delete/', device_delete_view, name='device-delete'),
+
+    path('stores/',Store_list.as_view(),name="store-index"),
+    path('stores/<int:pk>', Store_detail.as_view(), name='store-show'),
+    path('stores/create', Store_create.as_view(), name='store-create'),
+
+    
+
 ]
