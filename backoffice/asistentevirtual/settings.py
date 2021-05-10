@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'devices',
     'pages',
+    'videocalls'
 ]
 
 MIDDLEWARE = [
