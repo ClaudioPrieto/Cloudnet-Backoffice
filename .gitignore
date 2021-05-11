@@ -6,6 +6,8 @@ __pycache__
 db.sqlite3
 media
 mydatabase
+data/
+node_modules
 
 # pyenv 
 .python-version 
