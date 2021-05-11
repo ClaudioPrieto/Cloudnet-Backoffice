@@ -5,7 +5,6 @@
 __pycache__
 db.sqlite3
 media
-VideoCall/node_modules
 mydatabase
 data/
 
@@ -25,3 +24,6 @@ ENV/
 # sftp configuration file 
 sftp-config.json 
 bin
+
+#nodeJS Express
+VideoCall/node_modules/
