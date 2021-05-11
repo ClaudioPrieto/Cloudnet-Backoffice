@@ -19,6 +19,7 @@ from django.urls import path
 
 from pages.views import home_view
 from devices.views import device_index_view, device_show_view, device_create_view, device_update_view, device_delete_view
+from videocalls.views import videocall_index_view, videocall_create, videocall_middleware
 
 from stores.views import Store_list, Store_detail, Store_create, Store_update, Store_delete
 
@@ -39,5 +40,6 @@ urlpatterns = [
     path('stores/<int:pk>/update/', Store_update.as_view(), name='store-update'),
     path('stores/<int:pk>/delete/', Store_delete.as_view(), name='store-delete'),
     
-
+    path('videocalls/', videocall_index_view, name='videocall-index'),
+    path('makevideocall/', videocall_middleware, name='videocall-middleware'),
 ]

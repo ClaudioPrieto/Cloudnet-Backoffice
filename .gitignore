@@ -24,3 +24,6 @@ ENV/
 # sftp configuration file 
 sftp-config.json 
 bin
+
+#Express nodeJS
+node_modules
