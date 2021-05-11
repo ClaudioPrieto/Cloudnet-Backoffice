@@ -26,4 +26,4 @@ sftp-config.json
 bin
 
 #nodeJS Express
-/../VideoCall/node_modules/
+../VideoCall/node_modules/
