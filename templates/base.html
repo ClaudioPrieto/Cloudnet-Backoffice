@@ -15,6 +15,16 @@
     <li><a href='/devices'>Devices</a></li>
     <li><a href='/stores'>Stores</a></li>
     <li><a href='/videocalls'>Videocalls</a></li>
+    <li><a href="{% url 'salesman-index' %}">salesman</a></li>
+    {% if not request.user.is_authenticated %}
+      <li><a href='/accounts/login'>Login</a></li>
+      <li><a href= "{% url 'signup' %}">Signup</a></li>
+    {% else %}
+      <li><a href= "{% url 'logout' %}">Logout</a></li>
+      <li><a href="{% url 'profile' %}">Profile</a></li>
+    {%endif%}
+    
+
   </ul>
 
   {% block content %}
