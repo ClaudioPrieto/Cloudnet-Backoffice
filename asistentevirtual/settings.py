@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pages',
     'stores',
     'videocalls',
+    "attendance_tablets",
 ]
 
 MIDDLEWARE = [
