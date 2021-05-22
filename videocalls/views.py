@@ -24,4 +24,8 @@ def videocall_middleware(request):
     create.start()
     return redirect('http://localhost:3000')
 
-# Create your views here.
+def videocall_delete(request, data):
+    obj = Videocall.objects.get(pk=data)
+    url = obj.url
+    obj.delete()
+    return redirect(url)

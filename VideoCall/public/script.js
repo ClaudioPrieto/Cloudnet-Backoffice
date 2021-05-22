@@ -1,9 +1,11 @@
 const socket = io('/')
 const videoGrid = document.getElementById('video-grid')
+const messages = document.getElementById('wait-message')
 const myPeer = new Peer(undefined, {
     host: '/',
     port: '3001',
 })
+var peerPresent = false
 const myVideo = document.createElement('video')
 myVideo.muted = true
 const peers = {}
@@ -13,7 +15,22 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
     addVideoStream(myVideo, stream)
 
+    let myPromise = new Promise(function(myResolve, myReject) {
+        setTimeout(function() { myResolve("Todos los vendedores se encuentran ocupados"); }, 5000);
+    });
+
+    myPromise.then(function(value) {
+        document.getElementById("wait-message").innerHTML = value;
+    }).then(() => {
+        if (peerPresent) {
+            document.getElementById("wait-message").innerHTML = "";
+        }
+    })
+
+
     myPeer.on('call', call => {
+        peerPresent = true
+        document.getElementById("wait-message").innerHTML = ""
         call.answer(stream)
         const video = document.createElement('video')
         call.on('stream', userVideoStream => {
@@ -42,6 +59,8 @@ function connectToNewUser(userId, stream) {
     const call = myPeer.call(userId, stream)
     const video = document.createElement('video')
     call.on('stream', userVideoStream => {
+        peerPresent = true
+        document.getElementById("wait-message").innerHTML = "";
         addVideoStream(video, userVideoStream)
     })
     call.on('close', () => {
@@ -57,4 +76,5 @@ function addVideoStream(video, stream) {
         video.play()
     })
     videoGrid.append(video)
+    
 }
