@@ -11,10 +11,11 @@
 
 <body>
   <ul>
-    <li><a href='/'>Home</a></li>
+
+    <li><a href='/'>Inicio</a></li>
     <li><a href='/devices'>Devices</a></li>
-    <li><a href='/stores'>Stores</a></li>
-    <li><a href='/videocalls'>Videocalls</a></li>
+    <li><a href='/stores'>Catalogo</a></li>
+    <li><a href='/videocalls'>Videollamadas</a></li>
     <li><a href="{% url 'salesman-index' %}">salesman</a></li>
     {% if not request.user.is_authenticated %}
       <li><a href='/accounts/login'>Login</a></li>
@@ -24,6 +25,7 @@
       <li><a href="{% url 'profile' %}">Profile</a></li>
     {%endif%}
     
+
 
   </ul>
 

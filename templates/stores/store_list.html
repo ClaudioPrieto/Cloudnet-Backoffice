@@ -2,24 +2,29 @@
 {% load static %}
 
 {% block  content %}
-<link rel="stylesheet" type="text/css" href="{% static 'devices/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'stores/style.css' %}">
 
-<table>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      
-    </tr>
-    {% for store in stores %}
-      <tr>
-        <td>{{ store.name }}</td>
-        <td>{{ store.description }}</td>
-        <td><a href="{% url 'store-show' store.id %}">View</a></td>
-        <td><a href="{% url 'store-update' store.id %}">Edit</a></td>
-        <td><a href="{% url 'store-delete' store.id %}">Delete</a></td>
-      </tr>
-    {% endfor %}
+<div class="container">
+  <h1>Tiendas</h1>
 
-</table>
-<a href="{% url 'store-create' %}">Create store</a>
+  <div class="grid-stores">
+  {% for store in stores %}
+      <div class="grid-item">
+        <div class="store-info">
+          <p>{{ store.name }}</p>
+          <p>{{ store.description }}</p>
+        </div>
+
+        <div class="store-buttons">
+          <button onclick="location.href='{% url 'store-show' store.id %}'" type="button">Ver</button>
+          <button onclick="location.href='{% url 'store-update' store.id %}'" type="button">Editar</button>
+          <button onclick="location.href='{% url 'store-delete' store.id %}'" type="button">Eliminar</button>
+        </div>
+      </div>
+  {% endfor %}
+  </div>
+
+  <button id="create-store" onclick="location.href='{% url 'store-create' %}'" type="button">Crear Tienda</button>
+</div>
+
 {% endblock content %}

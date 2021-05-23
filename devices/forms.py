@@ -7,5 +7,6 @@ class DeviceForm(forms.ModelForm):
         fields = [
             'name',
             'description',
-            'price'
+            'price',
+            'store'
         ]
