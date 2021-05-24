@@ -27,3 +27,100 @@ body {
   margin-right: 0px;
   margin-left: 0px;
 }
+
+div.home_background {
+  background-image: linear-gradient(to bottom right,#00a693, #7b68ee);
+  height: 100vh;
+  text-align: center;
+}
+
+div.home_text-hold {
+  font-family: Georgia, serif;
+  background-color: rgba(0, 0, 0, 0);
+  height: 45vh;
+  text-align: center;
+  padding-top: 15vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
+  animation-name: hold-appear;
+  animation-duration: 10s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes hold-appear {
+  20%  {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  50%  {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  80%  {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+div.home_text-hold > p1 {
+  opacity: 0;
+  color:cornflowerblue;
+  font-size: 52px;
+  animation-name: text-appear;
+  animation-duration: 10s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes text-appear {
+  20%  {
+    opacity: 1;
+  }
+  50%  {
+    opacity: 1;
+  }
+  80%  {
+    opacity: 0;
+  }
+}
+
+div.home_text-hold > p2 {
+  opacity: 1;
+  font-size: 80px;
+  animation-name: text-appear2;
+  animation-duration: 10s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  padding-bottom: 0;
+}
+
+@keyframes text-appear2 {
+  20%  {
+    opacity: 0;
+  }
+  50%  {
+    opacity: 0;
+  }
+  80%  {
+    opacity: 1;
+  }
+}
+
+div.button_container {
+  font-family: Georgia, serif;
+  margin-top: 100px;
+}
+
+a.videobutton {
+  color: rgb(31, 85, 187);
+  text-decoration: none;
+  background-color: #008b8b;
+  padding: 45px;
+  margin-top: 20px;
+  font-size: 50px;
+}
+
+a.videobutton:hover {
+  background-color: #88e2e2;
+}

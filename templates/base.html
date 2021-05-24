@@ -13,20 +13,18 @@
   <ul>
 
     <li><a href='/'>Inicio</a></li>
-    <li><a href='/devices'>Devices</a></li>
-    <li><a href='/stores'>Catalogo</a></li>
+    <li><a href='/devices'>Dispositivos</a></li>
+    <li><a href='/stores'>Catálogo</a></li>
     <li><a href='/videocalls'>Videollamadas</a></li>
-    <li><a href="{% url 'salesman-index' %}">salesman</a></li>
+    <li><a href="{% url 'salesman-index' %}">Vendedor</a></li>
     {% if not request.user.is_authenticated %}
-      <li><a href='/accounts/login'>Login</a></li>
-      <li><a href= "{% url 'signup' %}">Signup</a></li>
+      <li><a href='/accounts/login'>Iniciar Sesión</a></li>
+      <li><a href= "{% url 'signup' %}">Registrarse</a></li>
     {% else %}
-      <li><a href= "{% url 'logout' %}">Logout</a></li>
-      <li><a href="{% url 'profile' %}">Profile</a></li>
+      <li><a href= "{% url 'logout' %}">Cerrar Sesión</a></li>
+      <li><a href="{% url 'profile' %}">Perfil</a></li>
     {%endif%}
     
-
-
   </ul>
 
   {% block content %}
