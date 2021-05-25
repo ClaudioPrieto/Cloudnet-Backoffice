@@ -22,7 +22,7 @@ from pages.views import home_view
 from devices.views import device_index_view, device_show_view, device_create_view, device_update_view, device_delete_view
 
 
-from stores.views import Store_list, Store_detail, Store_create, Store_update, Store_delete
+from stores.views import Store_list, store_show_view, Store_create, Store_update, Store_delete
 from registration.views import Salesman_list
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
