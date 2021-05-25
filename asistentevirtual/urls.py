@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
-
+from rest_framework import routers
 
 from pages.views import home_view
 from devices.views import device_index_view, device_show_view, device_create_view, device_update_view, device_delete_view
@@ -31,13 +31,11 @@ from attendance_tablets.views import attendance_tablet_index_view, attendance_ta
 
 from videocalls.views import videocall_index_view, videocall_middleware, videocall_delete
 
-
-
-
-
 urlpatterns = [
     path('', home_view, name='home'),
     path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 
     path('devices/', device_index_view, name='device-index'),
     path('devices/<int:id>', device_show_view, name='device-show'),
