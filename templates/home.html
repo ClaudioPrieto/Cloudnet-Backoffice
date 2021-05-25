@@ -2,8 +2,20 @@
 
 {% block  content %}
 
-<h1>Home Page</h1>
-
-<p><a href="/makevideocall" target = "_blank"> Iniciar video </a></p>
+<div class="home_background">
+  <div class="home_text-hold">
+    <p2>
+      Bienvenido al Asistente Virtual
+    </p2>
+    <br>
+    <p1>
+      Para iniciar una llamada, pulse el botón "Iniciar Video",<br>
+      un vendedor entrará en brevedad a la sesión
+    </p1>
+  </div>
+  <div class="button_container">
+    <p><a class="videobutton" href="/makevideocall" target = "_blank"> Iniciar Video </a></p>
+  </div>
+</div>
 
 {% endblock content %}
