@@ -3,7 +3,6 @@ from .models import Store
 from devices.models import Device
 from attendance_tablets.models import AttendanceTablet
 from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView

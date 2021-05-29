@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Device
 from .forms import DeviceForm
 
+
+
 def device_index_view(request):
     queryset = Device.objects.all()
     context = {
