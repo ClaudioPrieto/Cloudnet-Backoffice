@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Videocall
 import requests
+import environ
 from time import sleep
 from threading import Thread
 
@@ -12,8 +13,11 @@ def videocall_index_view(request):
     return render(request, "videocall/index.html", context)
 
 def videocall_create():
+    env = environ.Env()
+    environ.Env.read_env()
+    ip = env('DIRECCIÓN_IP_RED_LOCAL')
     sleep(1)
-    req = requests.get('http://<DIRECCIÓN_IP_RED_LOCAL>:3000/API')
+    req = requests.get(f'http://{ip}:3000/API')
     link = "http://localhost:3000/" + str(req.content).replace("b", "", 1).strip("'")
 
     new_call = Videocall(url=link)
