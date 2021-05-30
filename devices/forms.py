@@ -8,5 +8,5 @@ class DeviceForm(forms.ModelForm):
             'name',
             'description',
             'price',
-            'store'
+            'point_of_sale'
         ]

@@ -1,0 +1,38 @@
+.devices {
+  float: left;
+  width: 48%;
+  margin: 1%;
+}
+
+.tablets {
+  float: right;
+  width: 48%;
+  margin: 1%;
+}
+
+#devices-table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#devices-table td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#devices-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#devices-table tr:hover {background-color: #ddd;}
+
+#devices-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #333;
+  color: white;
+}
+
+.container {
+  margin: 10px;
+}
