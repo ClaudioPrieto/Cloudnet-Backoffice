@@ -1,3 +1,7 @@
+.container {
+  margin: 10px;
+}
+
 .devices {
   float: left;
   width: 48%;
@@ -11,28 +15,56 @@
 }
 
 #devices-table {
-  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-#devices-table td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
+#devices-table th,
+#devices-table td {
+    padding: 12px 15px;
+    text-align: left
 }
 
-#devices-table tr:nth-child(even){background-color: #f2f2f2;}
-
-#devices-table tr:hover {background-color: #ddd;}
-
-#devices-table th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #333;
-  color: white;
+#devices-table tbody tr {
+  border-bottom: 1px solid #dddddd;
 }
 
-.container {
-  margin: 10px;
+#devices-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+#devices-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+td.red {
+  background: red;
+}
+
+td.green {
+  background: green;
+}
+
+h1, h2, p {
+  font-family: sans-serif;
+}
+
+.button {
+  display: block;
+  width: 150px;
+  height: 25px;
+  background: #dddddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+  line-height: 25px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+  text-decoration: none;
 }
