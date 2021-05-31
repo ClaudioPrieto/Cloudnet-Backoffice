@@ -20,7 +20,7 @@ from rest_framework import routers
 
 from pages.views import home_view
 from devices.views import device_index_view, device_show_view, device_create_view, device_update_view, device_delete_view
-
+from point_of_sales.views import point_of_sale_index_view, point_of_sale_show_view, point_of_sale_create_view, point_of_sale_update_view, point_of_sale_delete_view
 
 from stores.views import Store_list, store_show_view, Store_create, Store_update, Store_delete
 from registration.views import Salesman_list
@@ -42,6 +42,12 @@ urlpatterns = [
     path('devices/create', device_create_view, name='device-create'),
     path('devices/<int:id>/update/', device_update_view, name='device-update'),
     path('devices/<int:id>/delete/', device_delete_view, name='device-delete'),
+
+    path('point_of_sales/', point_of_sale_index_view, name='point_of_sale-index'),
+    path('point_of_sales/<int:id>', point_of_sale_show_view, name='point_of_sale-show'),
+    path('point_of_sales/create', point_of_sale_create_view, name='point_of_sale-create'),
+    path('point_of_sales/<int:id>/update/', point_of_sale_update_view, name='point_of_sale-update'),
+    path('point_of_sales/<int:id>/delete/', point_of_sale_delete_view, name='point_of_sale-delete'),
 
     path('attendance-tablets/', attendance_tablet_index_view, name='attendance_tablet-index'),
     path('attendance-tablets/<int:id>', attendance_tablet_show_view, name='attendance_tablet-show'),

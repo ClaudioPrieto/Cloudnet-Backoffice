@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from .models import Device
 from .forms import DeviceForm
 
@@ -21,9 +22,8 @@ def device_show_view(request, id=id):
 def device_create_view(request):
     form = DeviceForm(request.POST or None)
     if form.is_valid():
-        form.save()
-        form = DeviceForm()
-        return redirect('/devices')
+        fcc_form = form.save(commit=True)
+        return redirect(reverse('point_of_sale-show', kwargs={'id': fcc_form.point_of_sale.id}))
     context = {
         'form': form
     }
@@ -33,7 +33,8 @@ def device_update_view(request, id=id):
     obj = get_object_or_404(Device, id=id)
     form = DeviceForm(request.POST or None, instance=obj)
     if form.is_valid():
-        form.save()
+        fcc_form = form.save(commit=True)
+        return redirect(reverse('point_of_sale-show', kwargs={'id': fcc_form.point_of_sale.id}))
     context = {
         'form': form
     }
@@ -43,7 +44,7 @@ def device_delete_view(request, id):
     obj = get_object_or_404(Device, id=id)
     if request.method == "POST":
         obj.delete()
-        return redirect('../../')
+        return redirect(reverse('point_of_sale-show', kwargs={'id': obj.point_of_sale.id}))
     context = {
         "object": obj
     }

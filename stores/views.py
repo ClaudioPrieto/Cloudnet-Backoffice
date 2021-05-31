@@ -1,7 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from .models import Store
-from devices.models import Device
-from attendance_tablets.models import AttendanceTablet
+from point_of_sales.models import PointOfSale
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
@@ -19,13 +18,10 @@ class Store_list(ListView):
 
 def store_show_view(request, id=id):
     store = get_object_or_404(Store, id=id)
-    devices = store.device_set.all()
-    print(store)
-    attendance_tablets = store.attendancetablet_set.all()
+    point_of_sales = store.pointofsale_set.all()
     context = {
         'store': store,
-        'devices': devices,
-        'attendance_tablets': attendance_tablets, 
+        'point_of_sales': point_of_sales,
     }
     return render(request, "stores/store_detail.html", context)
 
