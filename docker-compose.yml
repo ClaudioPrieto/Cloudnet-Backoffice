@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.6"
 #version: "3.3"
    
 services:
@@ -22,6 +22,8 @@ services:
       - "8000:8000"
     depends_on:
       - db
+    environment:
+      - DIRECCIÓN_RED_IP_LOCAL=52.86.237.160
   web_express-nodejs:
     build: ./VideoCall
     command: npm run devStart

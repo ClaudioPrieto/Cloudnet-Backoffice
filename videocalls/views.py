@@ -15,10 +15,10 @@ def videocall_index_view(request):
 def videocall_create():
     env = environ.Env()
     environ.Env.read_env()
-    ip = env('DIRECCIÓN_IP_RED_LOCAL')
+    ip = env('DIRECCION_IP')
     sleep(1)
     req = requests.get(f'http://{ip}:3000/API')
-    link = "http://localhost:3000/" + str(req.content).replace("b", "", 1).strip("'")
+    link = f"http://{ip}:3000/" + str(req.content).replace("b", "", 1).strip("'")
 
     new_call = Videocall(url=link)
     new_call.save()
@@ -26,7 +26,7 @@ def videocall_create():
 def videocall_middleware(request):
     create = Thread(target=videocall_create)
     create.start()
-    return redirect('http://localhost:3000')
+    return redirect(f'http://{ip}:3000')
 
 def videocall_delete(request, data):
     obj = Videocall.objects.get(pk=data)
