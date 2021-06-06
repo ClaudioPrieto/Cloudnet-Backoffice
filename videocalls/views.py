@@ -24,6 +24,8 @@ def videocall_create():
     new_call.save()
 
 def videocall_middleware(request):
+    env = environ.Env()
+    environ.Env.read_env()
     ip = env('DIRECCION_IP')
     create = Thread(target=videocall_create)
     create.start()
