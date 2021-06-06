@@ -24,6 +24,7 @@ def videocall_create():
     new_call.save()
 
 def videocall_middleware(request):
+    ip = env('DIRECCION_IP')
     create = Thread(target=videocall_create)
     create.start()
     return redirect(f'http://{ip}:3000')
