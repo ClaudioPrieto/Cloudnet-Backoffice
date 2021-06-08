@@ -1,0 +1,56 @@
+
+
+.grid-stores {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  background-color: grey;
+  padding: 10px;
+}
+.grid-item {
+  display: inline;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.store-info {
+  float: left;
+}
+
+.store-buttons {
+  float: right;
+}
+
+.store-buttons button {
+  background-color: grey;
+  border: 1px solid black;
+  color: white;
+  padding: 15px 40px;
+  cursor: pointer;
+  width: 100%; 
+  display: block;
+}
+
+.store-buttonsbutton:not(:last-child) {
+  border-bottom: none; 
+}
+
+.store-buttons button:hover {
+  background-color: #333;
+}
+
+#create-store {
+  background-color: grey;
+  border: 1px solid black;
+  color: white;
+  padding: 15px 40px;
+  cursor: pointer;
+  width: 100%; 
+  display: block;
+}
+
+#create-store:hover {
+  background-color: #333;
+}
