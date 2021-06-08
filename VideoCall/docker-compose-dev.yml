@@ -1,0 +1,21 @@
+version: "3.6"
+#version: "3.3"
+   
+services:
+  web_express-nodejs:
+    build: ./VideoCall
+    command: npm run devStart
+    volumes:
+      - .:/VideoCall/code2
+    ports:
+      - "3000:3000"
+  web_express-nodejs-peer:
+    build: ./VideoCall
+    command: npm run peerStart
+    volumes:
+      - .:/VideoCall/code2
+    ports:
+      - "3001:3001"
+    depends_on: 
+      - web_express-nodejs
+  
