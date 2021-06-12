@@ -11,9 +11,8 @@ class DeviceResource(resources.ModelResource):
         super(DeviceResource, self).__init__()
         self.request = request
 
-    class Meta:
-        model = Device
     
+
     def before_import_row(self, row, **kwargs):
         point_of_sale = self.request.POST.get('point_of_sale', None)
         if point_of_sale:
@@ -27,6 +26,10 @@ class DeviceResource(resources.ModelResource):
                 raise Exception(f'Point Of Sale context failure on row import, check resources.py for more info: {e}')
         row['point_of_sale'] = point_of_sale
 
+    class Meta:
+        model = Device
+    
+
 class DeviceAdmin(ImportMixin, admin.ModelAdmin):
     resource_class = DeviceResource
 
@@ -38,14 +41,12 @@ class DeviceAdmin(ImportMixin, admin.ModelAdmin):
         rk['request'] = request
         return rk
 
-    def get_export_formats(self):
-        """
-        Returns available export formats.
-        """
+    def get_import_formats(self):
         formats = (
-                base_formats.CSV,
+            base_formats.CSV,
         )
+
         return [f for f in formats if f().can_export()]
-        
+    
 
 admin.site.register(Device, DeviceAdmin)
