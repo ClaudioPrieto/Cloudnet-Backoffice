@@ -3,8 +3,6 @@ from django.urls import reverse
 from .models import Device
 from .forms import DeviceForm
 
-
-
 def device_index_view(request):
     queryset = Device.objects.all()
     context = {
