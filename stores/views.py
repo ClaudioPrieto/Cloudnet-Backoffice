@@ -7,6 +7,8 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.urls import reverse
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 class Store_list(ListView):
@@ -24,7 +26,7 @@ def store_show_view(request, id=id):
         'point_of_sales': point_of_sales,
     }
     return render(request, "stores/store_detail.html", context)
-
+@method_decorator(login_required, name='dispatch')
 class Store_create(CreateView):
     model = Store
     fields = ['name','description']
