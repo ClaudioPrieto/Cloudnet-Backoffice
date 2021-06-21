@@ -45,7 +45,7 @@ class SalesmanUpdate(UpdateView):
         salesman.save()
         
         return super().post(request, *args, **kwargs)
-
+@method_decorator(login_required, name='dispatch')
 def delete_user(request):
     context = {}
     print("veamos si vuelas mierdas")
