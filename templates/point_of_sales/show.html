@@ -17,17 +17,17 @@
     <table id="devices-table">
       <tr>
         <th>Nombre</th>
-        <th>Descripcion</th>
+        <th>Marca</th>
         <th>Precio</th>
       </tr>
       {% for device in devices %}
         <tr>
           <td>{{ device.name }}</td>
-          <td>{{ device.description }}</td>
+          <td>{{ device.brand }}</td>
           <td>${{ device.price }}</td>
           <td><a href='{{ device.get_absolute_url }}'>Ver</a></td>
-          <td><a href='{% url 'device-update' id=device.id %}'>Editar</a></td>
-          <td><a href='{% url 'device-delete' id=device.id %}'>Eliminar</a></td>
+          {% comment %} <td><a href='{% url 'device-update' id=device.id %}'>Editar</a></td>
+          <td><a href='{% url 'device-delete' id=device.id %}'>Eliminar</a></td> {% endcomment %}
         </tr>
       {% endfor %}
     </table>
@@ -47,12 +47,12 @@
       <tr>
         <td>{{ tablet.name }}</td>
         <td class="
-            {% if tablet.online %}red{% endif %}
-            {% if tablet.online == False%}green{% endif %}">
+            {% if tablet.online %}green{% endif %}
+            {% if tablet.online == False%}red{% endif %}">
         </td>
         <td><a href='{{ tablet.get_absolute_url }}'>Ver</a></td>
-        <td><a href='{% url 'attendance_tablet-update' id=tablet.id %}'>Editar</a></td>
-        <td><a href='{% url 'attendance_tablet-delete' id=tablet.id %}'>Eliminar</a></td>
+        {% comment %} <td><a href='{% url 'attendance_tablet-update' id=tablet.id %}'>Editar</a></td>
+        <td><a href='{% url 'attendance_tablet-delete' id=tablet.id %}'>Eliminar</a></td> {% endcomment %}
       </tr>
     {% endfor %}
     </table>

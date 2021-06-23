@@ -13,7 +13,13 @@ class DeviceForm(forms.ModelForm):
         model = Device
         fields = [
             'name',
-            'description',
+            'model_number',
+            'brand',
+            'os',
+            'color',
+            'memory',
+            'internal_memory',
             'price',
+            'sale',
             'point_of_sale'
         ]
