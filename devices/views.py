@@ -11,6 +11,7 @@ def device_index_view(request):
         'object_list': queryset
     }
     return render(request, "device/index.html", context)
+  
 @login_required
 def device_show_view(request, id=id):
     obj = get_object_or_404(Device, id=id)
@@ -18,6 +19,7 @@ def device_show_view(request, id=id):
         'object': obj
     }
     return render(request, "device/show.html", context)
+  
 @login_required
 def device_create_view(request):
     form = DeviceForm(request.POST or None)
@@ -28,6 +30,7 @@ def device_create_view(request):
         'form': form
     }
     return render(request, "device/create.html", context)
+  
 @login_required
 def device_update_view(request, id=id):
     obj = get_object_or_404(Device, id=id)
@@ -39,6 +42,7 @@ def device_update_view(request, id=id):
         'form': form
     }
     return render(request, "device/create.html", context)
+  
 @login_required
 def device_delete_view(request, id):
     obj = get_object_or_404(Device, id=id)

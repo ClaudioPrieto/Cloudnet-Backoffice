@@ -12,7 +12,8 @@
     {% for videocall in object_list %}
       <tr>
         <td>
-          <a href="{% url 'videocall-delete' videocall.id %}" target = '_blank'>Sala {{ videocall.id }}
+          <a href="{% url 'videocall-delete' videocall.id %}" target = '_blank'>
+            Sala {{ videocall.id }}
           </a>
         </td>
       </tr>
