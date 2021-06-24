@@ -8,3 +8,6 @@ class AttendanceTablet(models.Model):
 
     def get_absolute_url(self):
         return reverse("attendance_tablet-show", kwargs={"id": self.id})
+
+    def __str__(self):
+        return self.name
