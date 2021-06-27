@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.6"
 #version: "3.3"
    
 services:
@@ -18,35 +18,31 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
-    ports:
-      - "8000:8000"
+    expose:
+      - 8000
     depends_on:
       - db
-  web_express-nodejs:
-    build: ./VideoCall
-    command: npm run devStart
-    volumes:
-      - .:/VideoCall/code2
+    environment:
+      - DIRECCIÓN_RED_IP_LOCAL=52.86.237.160
+  nginx:
+    image: nginx:1.19.0-alpine
+    restart: unless-stopped
     ports:
-      - "3000:3000"
-    depends_on: 
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    depends_on:
       - web_django
-  web_express-nodejs-peer:
-    build: ./VideoCall
-    command: npm run peerStart
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  certbot:
+    image: certbot/certbot
+    restart: unless-stopped
     volumes:
-      - .:/VideoCall/code2
-    ports:
-      - "3001:3001"
-    depends_on: 
-      - web_express-nodejs
-  #reverse_proxy:
-    #image: nginx
-      #volumes:
-        #- ./templates:/etc/nginx/templates
-      #ports:
-        #- "80:80"
-        #- "443:443"
-      #environment:
-        #- NGINX_HOST=foobar.com
-        #- NGINX_PORT=80
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+    
