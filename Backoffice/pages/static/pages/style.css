@@ -26,11 +26,18 @@ body {
   margin-top: 0px;
   margin-right: 0px;
   margin-left: 0px;
+  background-color: #eaece5;
 }
 
 div.home_background {
   background-image: linear-gradient(to bottom right,#00a693, #7b68ee);
   height: 100vh;
+  text-align: center;
+}
+
+div.survey_background {
+  background-image: linear-gradient(to bottom right,#00a693, #7b68ee);
+  height: 100%;
   text-align: center;
 }
 
@@ -112,6 +119,12 @@ div.button_container {
   margin-top: 100px;
 }
 
+div.flex_container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
 a.videobutton {
   color: rgb(31, 85, 187);
   text-decoration: none;
@@ -119,8 +132,38 @@ a.videobutton {
   padding: 45px;
   margin-top: 20px;
   font-size: 50px;
+  margin-right: 35px;
+  margin-left: 35px;
 }
 
 a.videobutton:hover {
   background-color: #88e2e2;
+}
+
+div.grid-container {
+  display: grid;
+  padding: 10px;
+}
+
+div.survey_text-hold {
+  font-family: Georgia, serif;
+  height: 25vh;
+  text-align: center;
+  padding-top: 15vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
+}
+
+div.survey_text-hold > p2 {
+  opacity: 1;
+  font-size: 80px;
+  padding-bottom: 0;
+}
+
+div.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }

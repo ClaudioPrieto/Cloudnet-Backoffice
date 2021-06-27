@@ -14,22 +14,14 @@
 
   <div class="grid-stores">
   {% for obj in point_of_sales %}
-      <div class="grid-item">
+      <div class="grid-item" onclick="location.href='{% url 'point_of_sale-show' obj.id %}'">
         <div class="store-info">
           <p>{{ obj.name }}</p>
           <p>{{ obj.description }}</p>
         </div>
-
-        <div class="store-buttons">
-          <button onclick="location.href='{% url 'point_of_sale-show' obj.id %}'" type="button">Ver</button>
-          <button onclick="location.href='{% url 'point_of_sale-update' obj.id %}'" type="button">Editar</button>
-          <button onclick="location.href='{% url 'point_of_sale-delete' obj.id %}'" type="button">Eliminar</button>
-        </div>
       </div>
   {% endfor %}
   </div>
-
-  <button id="create-store" onclick="location.href='{% url 'point_of_sale-create' %}'" type="button">Crear Punto de Venta</button>
 </div>
 
 {% endblock content %}
