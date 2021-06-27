@@ -26,8 +26,6 @@
           <td>{{ device.brand }}</td>
           <td>${{ device.price }}</td>
           <td><a href='{{ device.get_absolute_url }}'>Ver</a></td>
-          {% comment %} <td><a href='{% url 'device-update' id=device.id %}'>Editar</a></td>
-          <td><a href='{% url 'device-delete' id=device.id %}'>Eliminar</a></td> {% endcomment %}
         </tr>
       {% endfor %}
     </table>
@@ -51,8 +49,6 @@
             {% if tablet.online == False%}red{% endif %}">
         </td>
         <td><a href='{{ tablet.get_absolute_url }}'>Ver</a></td>
-        {% comment %} <td><a href='{% url 'attendance_tablet-update' id=tablet.id %}'>Editar</a></td>
-        <td><a href='{% url 'attendance_tablet-delete' id=tablet.id %}'>Eliminar</a></td> {% endcomment %}
       </tr>
     {% endfor %}
     </table>
