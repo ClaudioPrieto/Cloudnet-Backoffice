@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'registration',
-    'corsheaders'
+    'corsheaders',
 
     'django.contrib.admin',
     'django.contrib.auth',
