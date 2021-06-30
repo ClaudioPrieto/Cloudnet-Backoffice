@@ -2,17 +2,17 @@ version: "3.9"
 #version: "3.3"
    
 services:
-  db:
-    image: postgres:12
-    volumes:
-      - ./data/db:/var/lib/postgresql@12/data
-    image: postgres
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+  # db:
+  #   image: postgres:12
+  #   volumes:
+  #     - ./data/db:/var/lib/postgresql@12/data
+  #   image: postgres
+  #   volumes:
+  #     - ./data/db:/var/lib/postgresql/data
+  #   environment:
+  #     - POSTGRES_DB=postgres
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
   web_django:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -20,8 +20,8 @@ services:
       - .:/code
     ports:
       - "8000:8000"
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
   web_express-nodejs:
     build: ./VideoCall
     command: npm run devStart
@@ -50,3 +50,5 @@ services:
       #environment:
         #- NGINX_HOST=foobar.com
         #- NGINX_PORT=80
+
+    
