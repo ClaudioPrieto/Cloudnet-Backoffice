@@ -70,7 +70,7 @@ h1, h2, p {
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  width: 94.5%;
+  width: 92%;
 }
 
 .tablets .table-header {
@@ -79,7 +79,7 @@ h1, h2, p {
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  width: 92%;
+  width: 88%;
 }
 
 .col-3 {
@@ -104,7 +104,7 @@ h1, h2, p {
 }
 
 .button {
-  background-color: #95A5A6; /* Green */
+  background-color: #95A5A6;
   border: none;
   color: white;
   padding: 10px 20px;
@@ -116,7 +116,7 @@ h1, h2, p {
 }
 
 .button:hover {
-  background-color: #CD5C5C; /* Green */
+  background-color: #CD5C5C;
   border: none;
   color: black;
   padding: 10px 20px;
