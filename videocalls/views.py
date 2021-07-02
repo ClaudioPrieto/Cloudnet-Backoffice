@@ -26,9 +26,13 @@ def videocall_create():
     new_call.save()
 
 def videocall_middleware(request):
+    env = environ.Env()
+    environ.Env.read_env()
+    videocall_url = env('VIDEOCALL_URL')
     create = Thread(target=videocall_create)
     create.start()
-    return redirect('http://localhost:3000')
+
+    return redirect(videocall_url)
 
 def videocall_delete(request, data):
     obj = Videocall.objects.get(pk=data)
