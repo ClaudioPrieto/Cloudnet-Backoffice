@@ -16,6 +16,7 @@ ul.navbar > li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-family: sans-serif;
 }
 
 ul.navbar > li a:hover {
@@ -166,4 +167,16 @@ div.grid-item {
   padding: 20px;
   font-size: 30px;
   text-align: center;
+}
+
+.adminpanel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 30px;
+  font-size: 20px;
+}
+
+.adminpanel a {
+  color: black;
 }
