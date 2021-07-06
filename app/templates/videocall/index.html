@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block  content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'devices/style.css' %}">
+
+<table id="table1">
+    <tr>
+      <th>Link</th>
+    </tr>
+    {% for videocall in object_list %}
+      <tr>
+        <td>
+          <a href="{% url 'videocall-delete' videocall.id %}" target = '_blank'>
+            Sala {{ videocall.id }}
+          </a>
+        </td>
+      </tr>
+    {% endfor %}
+</table>
+
+<script>
+  setInterval(function ajaxFetch() {
+    fetch('//swdev9.ing.puc.cl/videocalls_ajax/', {
+      headers:{
+          'Accept': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+      },
+    })
+    .then(response => {
+      return response.json()
+    })
+    .then(data => {
+      let urls = data['ids']
+      let table = "<tr><th>Link</th></tr>"
+      for(let i = 0; i < urls.length; i+=1){
+        table += `<tr><td><a href='/${urls[i]}/deletevideocall/' target = '_blank'>` +
+        "Sala " + urls[i] +
+        "</a></td></tr>"
+      }
+      document.getElementById("table1").innerHTML = table;
+    })
+  }, 5000)
+</script>
+
+{% endblock content %}
